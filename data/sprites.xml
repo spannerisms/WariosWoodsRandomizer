@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<sprites>
+	<player>
+		<character name="Toad" filename="toad">
+			<palettes>
+				<skin name="Vanilla" col1="FFFFFF" col2="A594FF" col3="FF9C9C" col4="AD6331" col5="FF0000" col6="008CFF" col7="4A0000" />
+				<skin name="Blue" col1="FFFFFF" col2="A594FF" col3="FF9C9C" col4="AD6331" col5="0000FF" col6="008CFF" col7="4A0000" />
+				<skin name="Super Mushroom" col1="FF0000" col2="A50000" col3="FF9C9C" col4="AD6331" col5="FFFFFF" col6="BDBDFF" col7="4A0000" />
+				<skin name="1-UP" col1="00F700" col2="00BD00" col3="FF9C9C" col4="AD6331" col5="FFFFFF" col6="007300" col7="4A0000" />
+				<skin name="Toxic" col1="7B39FF" col2="4A21A5" col3="FF9C9C" col4="AD6331" col5="FF6BFF" col6="311063" col7="4A0000" />
+				<skin name="Old School" col1="FFFFFF" col2="CECECE" col3="FFA542" col4="C64A31" col5="F73900" col6="F73900" col7="212121" />
+				<skin name="Sunny Side Up" col1="FFFF18" col2="A59400" col3="FF9C9C" col4="AD6331" col5="FF8C00" col6="FF0000" col7="4A0000" />
+				<skin name="Ghostly" col1="E7E7FF" col2="ADC6FF" col3="E7E7FF" col4="A594FF" col5="5242DE" col6="847BFF" col7="18395A" />
+				<skin name="Dedar Cosplay" col1="FF3931" col2="BD0000" col3="29E784" col4="009C4A" col5="FFFF00" col6="FF3931" col7="4A0000" />
+			</palettes>
+		</character>
+		<character name="Katsini" filename="katsini">
+			<palettes>
+				<skin name="Vanilla" col1="FFFFFF" col2="AD63FF" col3="296B7B" col4="FF0000" col5="940000" col6="FFFF00" col7="214242" />
+				<skin name="Human" col1="FFFFFF" col2="FFC6C6" col3="C6637B" col4="4A63E7" col5="2939B5" col6="7B4200" col7="393939" />
+				<skin name="Ivory" col1="FFFFFF" col2="DEDEDE" col3="9C9C9C" col4="008CFF" col5="0063CE" col6="FF0000" col7="213973" />
+				<skin name="Ebony" col1="FFFFFF" col2="636363" col3="424242" col4="008CFF" col5="0063CE" col6="FF0000" col7="213973" />
+				<skin name="Carrot" col1="FFFFFF" col2="FF9400" col3="BD6300" col4="00C600" col5="008C00" col6="00FF00" col7="214200" />
+				<skin name="Tomato" col1="FFFFFF" col2="FF0000" col3="BD0000" col4="00C600" col5="008C00" col6="00FF00" col7="214200" />
+				<skin name="Lemon-Lime" col1="FFFFFF" col2="FFFF00" col3="BDBD00" col4="00C629" col5="008C29" col6="00EF52" col7="214200" />
+			</palettes>
+		</character>
+		<character name="Galrog" filename="galrog">
+			<palettes>
+				<skin name="Vanilla" col1="FFFFFF" col2="B59C9C" col3="847373" col4="524242" col5="FFDEE7" col6="E7FFFF" col7="392929" />
+				<skin name="Golden Galrog" col1="FFFFFF" col2="FFD600" col3="D69C00" col4="A56300" col5="FFDEE7" col6="E7FFFF" col7="392929" />
+				<skin name="Silver Galrog" col1="FFFFFF" col2="D6CEEF" col3="9C9CCE" col4="63638C" col5="FFDEE7" col6="E7FFFF" col7="392929" />
+				<skin name="Bronze Galrog" col1="FFFFFF" col2="CE7331" col3="945231" col4="6B4221" col5="FFDEE7" col6="E7FFFF" col7="392929" />
+				<skin name="Ivory Galrog" col1="FFFFFF" col2="EFEFEF" col3="BDBDBD" col4="8C8C8C" col5="CEDEFF" col6="FFFFFF" col7="392929" />
+				<skin name="Emerald Galrog" col1="B5FFB5" col2="00C65A" col3="008C42" col4="006310" col5="00DE00" col6="C6FFC6" col7="002910" />
+				<skin name="Fleshy Galrog" col1="FFFFFF" col2="FFC6C6" col3="E78CA5" col4="C6637B" col5="FFCEB5" col6="E7FFFF" col7="392929" />
+				<skin name="Evil Galrog" col1="B5B5B5" col2="5A5A5A" col3="4A4A4A" col4="313131" col5="940000" col6="FF0000" col7="392929" />
+			</palettes>
+		</character>
+		<character name="Harley Q" filename="harley-q">
+			<palettes>
+				<skin name="Vanilla" col1="FFFFFF" col2="9C94FF" col3="FF0052" col4="21FF8C" col5="FFFF00" col6="39317B" col7="5A5A00" />
+				<skin name="Cotton Candy" col1="FFFFFF" col2="CECEFF" col3="FFC6DE" col4="946B84" col5="94D6FF" col6="39317B" col7="5A5A00" />
+				<skin name="Fashion Atrocity" col1="00FF00" col2="FF0000" col3="FF00FF" col4="FFFF00" col5="00FFFF" col6="39317B" col7="5A5A00" />
+			</palettes>
+		</character>
+		<character name="SamSpook" filename="samspook">
+			<palettes>
+				<skin name="Vanilla" col1="FFFFFF" col2="A5FF52" col3="FF8C00" col4="004AAD" col5="0073FF" col6="5A8C29" col7="003163" />
+				<skin name="Pumpkin" col1="FFFFFF" col2="FF8C00" col3="00BD39" col4="004AAD" col5="0073FF" col6="DE6329" col7="003163" />
+				<skin name="Mario Cosplay" col1="FFFFFF" col2="EFC6AD" col3="FF1800" col4="0010A5" col5="1094EF" col6="CE7B9C" col7="003163" />
+				<skin name="Wario Cosplay" col1="FFFFFF" col2="FFC6C6" col3="FFFF00" col4="521052" col5="94188C" col6="C6637B" col7="420042" />
+				<skin name="Pyrojack Cosplay" col1="FFFFFF" col2="D6B518" col3="185A39" col4="18185A" col5="18397B" col6="B57B18" col7="003163" />
+			</palettes>
+		</character>
+		<character name="Sven" filename="sven">
+			<palettes>
+				<skin name="Vanilla" col1="FFFFFF" col2="634A31" col3="FF0021" col4="FFAD10" col5="B5DEFF" col6="B57300" col7="4A0000" />
+				<skin name="Festive" col1="FFFFFF" col2="E7E7E7" col3="8C8C8C" col4="FF0010" col5="EFB500" col6="00B500" col7="4A0000" />
+				<skin name="Sarissa Cosplay" col1="FFFFFF" col2="18C69C" col3="FF005A" col4="5A4AFF" col5="FFE7B5" col6="5A4AFF" col7="21108C" />
+			</palettes>
+		</character>
+		<character name="Parrotor" filename="parrotor">
+			<palettes>
+				<skin name="Vanilla" col1="FFFFFF" col2="FF94FF" col3="FF004A" col4="6BFF21" col5="429C00" col6="39524A" col7="4A0000" />
+				<skin name="Corvid" col1="39395A" col2="212121" col3="39395A" col4="31314A" col5="292939" col6="000000" col7="212121" />
+				<skin name="Pigeon" col1="FFFFFF" col2="6BFF21" col3="429C00" col4="9C9C9C" col5="6B6B6B" col6="4A4252" col7="393121" />
+				<skin name="Dove of Peace" col1="FFFFFF" col2="FFB521" col3="E79C00" col4="EFEFEF" col5="C6C6C6" col6="949494" col7="4A0000" />
+			</palettes>
+		</character>
+		<character name="Mssr Boo" filename="mssr-boo">
+			<palettes>
+				<skin name="Vanilla" col1="FFFFFF" col2="5239C6" col3="FF0000" col4="ADC6FF" col5="847BFF" col6="000000" col7="B50000" />
+				<skin name="Bedwetter" col1="FFFF63" col2="9C9C18" col3="FFFF00" col4="E7E739" col5="B5B521" col6="B5B508" col7="B5B500" />
+				<skin name="Shadow" col1="39395A" col2="212121" col3="39395A" col4="31314A" col5="292939" col6="000000" col7="212121" />
+			</palettes>
+		</character>
+		<character name="Aqualea" filename="aqualea">
+			<palettes>
+				<skin name="Vanilla" col1="FFFFFF" col2="FF00FF" col3="FF9C9C" col4="AD6331" col5="008CFF" col6="840084" col7="214242" />
+				<skin name="Dropkick" col1="FFFFFF" col2="63BD7B" col3="FFE7E7" col4="CE9494" col5="F7F78C" col6="217342" col7="214242" />
+				<skin name="Sarissa Cosplay" col1="FFFFFF" col2="5A4AFF" col3="FFE7B5" col4="CEA573" col5="18C69C" col6="4221B5" col7="21108C" />
+				<skin name="Inverted" col1="FFFFFF" col2="008CFF" col3="FF9C9C" col4="AD6331" col5="FF00FF" col6="0063B5" col7="214242" />
+			</palettes>
+		</character>
+		<character name="Razor" filename="razor">
+			<palettes>
+				<skin name="Vanilla" col1="FFFFFF" col2="8CFFFF" col3="FF0052" col4="215252" col5="31BDBD" col6="BD316B" col7="4A0000" />
+				<skin name="Beauty in the Flesh" col1="FFFFFF" col2="FFEFBD" col3="5200F7" col4="EFD6AD" col5="DEBD94" col6="6B00DE" col7="4A0000" />
+			</palettes>
+		</character>
+		<character name="Tad Rock" filename="tad-rock">
+			<palettes>
+				<skin name="Vanilla" col1="FFFFFF" col2="00FF9C" col3="FFFF6B" col4="00A552" col5="B573FF" col6="AD9C00" col7="AD0000" />
+				<skin name="Human" col1="FFFFFF" col2="FFC6C6" col3="CEC66B" col4="C6637B" col5="B573FF" col6="AD9C00" col7="A50000" />
+			</palettes>
+		</character>
+		<character name="Thak" filename="thak">
+			<palettes>
+				<skin name="Vanilla" col1="FFFFFF" col2="73CEFF" col3="1863FF" col4="4A9CFF" col5="8C5218" col6="FF9431" col7="00009C" />
+				<skin name="Human" col1="FFFFFF" col2="FFC6C6" col3="E78CAD" col4="C6637B" col5="634218" col6="C66331" col7="391808" />
+				<skin name="Simpsons" col1="FFFFFF" col2="FFFF10" col3="BDBD00" col4="DEDE08" col5="0018BD" col6="3100FF" col7="00005A" />
+				<skin name="Abominable Snowman" col1="FFFFFF" col2="FFFFFF" col3="8C8C8C" col4="C6C6C6" col5="528C8C" col6="94FFFF" col7="4A4A4A" />
+			</palettes>
+		</character>
+		<character name="Lizardon" filename="lizardon">
+			<palettes>
+				<skin name="Vanilla" col1="FFFFFF" col2="B563FF" col3="FFFF00" col4="8C4AE7" col5="8484BD" col6="5A21C6" col7="295A00" />
+				<skin name="Lizard" col1="FFFFFF" col2="52E710" col3="CEF763" col4="42AD08" col5="218400" col6="106300" col7="295A00" />
+				<skin name="Fire Lizard" col1="FFFFFF" col2="FF0000" col3="F77B00" col4="C60000" col5="BDC6BD" col6="5A0000" col7="CE5A00" />
+				<skin name="Water Lizard" col1="E7E7FF" col2="0063FF" col3="FFBD00" col4="004AE7" col5="0084BD" col6="0021C6" col7="6B2152" />
+			</palettes>
+		</character>
+		<character name="Sarissa" filename="sarissa">
+			<palettes>
+				<skin name="Vanilla" col1="FFFFFF" col2="18C69C" col3="FF005A" col4="5A4AFF" col5="FFE7B5" col6="188463" col7="21108C" />
+				<skin name="Black Magic Woman" col1="FFFFFF" col2="18C69C" col3="AD21AD" col4="424242" col5="FFE7B5" col6="188463" col7="313131" />
+				<skin name="Explosion!" col1="FFFFFF" col2="73525A" col3="FFDE6B" col4="B5424A" col5="FFEFDE" col6="4A3939" col7="733142" />
+				<skin name="Blondie" col1="FFFFFF" col2="FFD642" col3="D663FF" col4="FF4AC6" col5="FFE7B5" col6="DEB508" col7="B5088C" />
+				<skin name="Anime" col1="FFFFFF" col2="189CFF" col3="CE63A5" col4="FF73BD" col5="FFE7DE" col6="1863B5" col7="42425A" />
+				<skin name="Futaba" col1="FFFFFF" col2="5A7352" col3="AD3942" col4="8C8C8C" col5="FFE7B5" col6="425A29" col7="424242" />
+				<skin name="Anti-Sarissa" col1="FFFFFF" col2="5A4AFF" col3="FFE7B5" col4="18C69C" col5="FF005A" col6="21108C" col7="188463" />
+				<skin name="Pajamas" col1="FFFFFF" col2="18C69C" col3="BD0063" col4="A54ABD" col5="FFE7B5" col6="188463" col7="731084" />
+				<skin name="Festive" col1="FFFFFF" col2="18C69C" col3="FFFFFF" col4="FF1829" col5="FFE7B5" col6="188463" col7="8C1021" />
+				<skin name="Old Lady" col1="FFFFFF" col2="C6C6C6" col3="DEB5AD" col4="6B63C6" col5="FFE7B5" col6="8C8C8C" col7="4A4AA5" />
+			</palettes>
+		</character>
+		<character name="Mangylox" filename="mangylox">
+			<palettes>
+				<skin name="Vanilla" col1="FFFFFF" col2="FF5200" col3="FFCE00" col4="FFFF00" col5="FF2900" col6="00FFC6" col7="5A1000" />
+				<skin name="Grimace Cosplay" col1="FFFFFF" col2="52298C" col3="5A2994" col4="422173" col5="4A2963" col6="52298C" col7="A539A5" />
+				<skin name="Outline" col1="FFFFFF" col2="FFFFFF" col3="FFFFFF" col4="FFFFFF" col5="FFFFFF" col6="FFFFFF" col7="212100" />
+				<skin name="Potato" col1="FFFFFF" col2="D6A594" col3="B57B63" col4="BD7363" col5="BD5252" col6="6B0000" col7="421000" />
+			</palettes>
+		</character>
+		<character name="Dedar" filename="dedar">
+			<palettes>
+				<skin name="Vanilla" col1="FFFFFF" col2="29E784" col3="FF3931" col4="009C4A" col5="BD0000" col6="FFFF00" col7="4A0000" />
+				<skin name="Link" col1="FFFFFF" col2="F7A56B" col3="42DE73" col4="BD6B21" col5="39946B" col6="C61821" col7="292929" />
+				<skin name="Sarissa Cosplay" col1="FFFFFF" col2="FFE7B5" col3="5A4AFF" col4="E79C8C" col5="21108C" col6="FF005A" col7="4A0000" />
+				<skin name="Wario Cosplay" col1="FFFFFF" col2="FFC6C6" col3="FF0084" col4="C6637B" col5="BD0063" col6="FFA542" col7="4A0000" />
+			</palettes>
+		</character>
+		<character name="Carlton" filename="carlton">
+			<palettes>
+				<skin name="Vanilla" col1="FFFFFF" col2="848CB5" col3="FF84FF" col4="4A5A6B" col5="B5C6F7" col6="31426B" col7="4A0000" />
+				<skin name="The Black Knight" col1="FFFFFF" col2="5A5A5A" col3="FF84FF" col4="525252" col5="848484" col6="9C0000" col7="4A0000" />
+				<skin name="Golden Knight" col1="FFFFFF" col2="FFE700" col3="FF84FF" col4="C6A500" col5="E7C600" col6="9C7300" col7="4A0000" />
+				<skin name="White Knight" col1="FFFFFF" col2="EFEFEF" col3="FF84FF" col4="D6D6D6" col5="B5B5B5" col6="6B6B6B" col7="4A0000" />
+			</palettes>
+		</character>
+		<character name="Harry H" filename="harry-h">
+			<palettes>
+				<skin name="Vanilla" col1="FFFFFF" col2="FFC684" col3="FF0000" col4="AD7352" col5="737BAD" col6="0000FF" col7="4A0000" />
+				<skin name="White Rabbit" col1="FFFFFF" col2="FFFFFF" col3="6363B5" col4="E7E7E7" col5="5A5A5A" col6="313131" col7="313131" />
+				<skin name="Chocolate Bunny" col1="6B2118" col2="7B524A" col3="634239" col4="634239" col5="7B524A" col6="634239" col7="4A2118" />
+			</palettes>
+		</character>
+		<character name="Wario" filename="wario">
+			<palettes>
+				<skin name="Vanilla" col1="FFFFFF" col2="B5B5FF" col3="FFC6C6" col4="C6637B" col5="FF0084" col6="FFA542" col7="633910" />
+				<skin name="Itsa Me!" col1="FFFFFF" col2="B5B5FF" col3="FFC6C6" col4="C6637B" col5="BD1800" col6="FF1800" col7="633910" />
+				<skin name="Sunburnt" col1="FFF7EF" col2="FFB5B5" col3="FF4A4A" col4="C62942" col5="F70000" col6="FFA542" col7="633910" />
+				<skin name="Frostbite" col1="FFFFFF" col2="B5B5FF" col3="94FFFF" col4="63C6C6" col5="8400FF" col6="FFA542" col7="633910" />
+				<skin name="Jaundice" col1="FFFFFF" col2="B5B5FF" col3="FFC639" col4="C6A542" col5="FF0084" col6="FFA542" col7="633910" />
+				<skin name="Ghost" col1="EFE7FF" col2="B5B5C6" col3="E7E7FF" col4="B5B5FF" col5="9C9CEF" col6="B5B5D6" col7="18395A" />
+				<skin name="Zombie" col1="DEDEEF" col2="CE94B5" col3="63C6C6" col4="52948C" col5="7B8C00" col6="7BD64A" col7="526310" />
+			</palettes>
+		</character>
+	</player>
+</sprites>

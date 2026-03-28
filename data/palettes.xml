@@ -1,0 +1,582 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<!--
+
+##################################################################################################
+##################################################################################################
+################### Formats
+##################################################################################################
+##################################################################################################
+
+
+##################################################################################################
+### Color codes
+##################################################################################################
+
+hex: rrggbb                   Example: CCCCFF
+
+##################################################################################################
+### Colors
+##################################################################################################
+<color name="[unique name]" light="[color code]" dark="[color code]" />
+
+##################################################################################################
+### Palettes
+##################################################################################################
+<palette name="[unique name]">
+	<body type="[type]" ...
+	<gloss type="[type]" ...
+	<blush type="[type]" ...
+</palette>
+
+body, gloss, blush tags:
+	named colors:
+		<body type="namedcolor" name="[color name]" />
+
+	explicit colors:
+		<body type="inlinecolor" light="[color code]" dark="[color code]" />
+
+Not recommended to add:
+	<suboutline type="inlinecolor" color="[color code]" />
+
+##################################################################################################
+### Themes
+##################################################################################################
+<theme name="[unique name]">
+	<red type="[type]" ...
+	<yellow type="[type]" ...
+	<green type="[type]" ...
+	<blue type="[type]" ...
+	<pink type="[type]" ...
+	<azure type="[type]" ...
+	<black type="[type]" ...
+	<white type="[type]" ...
+</theme>
+
+color tags:
+	named palettes:
+		<red type="namedpalette" palettename="[palette name]" />
+
+	inline palettes:
+		<red type="childpalette">
+			{ see Palettes format }
+		</red>
+
+##################################################################################################
+##################################################################################################
+##################################################################################################
+-->
+<data>
+	<colors>
+		<!--
+		The vanilla colors are hardcoded into the application and only listed here for reference
+		<color light="FFD6D6" dark="FF7B7B" name="Vanilla Monster Blush" />
+		<color light="FF3129" dark="942929" name="Vanilla Red Body" />
+		<color light="FFDE00" dark="7B8400" name="Vanilla Red Gloss" />
+		<color light="42CE00" dark="296B29" name="Vanilla Green Body" />
+		<color light="FFFF8C" dark="7B844A" name="Vanilla Green Gloss" />
+		<color light="0084FF" dark="003994" name="Vanilla Blue Body" />
+		<color light="FFFFFF" dark="00BDF7" name="Vanilla Blue Gloss" />
+		<color light="EFEF21" dark="7B8400" name="Vanilla Yellow Body" />
+		<color light="FF3131" dark="942929" name="Vanilla Yellow Gloss" />
+		<color light="EFEFEF" dark="A5A5A5" name="Vanilla White Body" />
+		<color light="73B5FF" dark="004AA5" name="Vanilla White Gloss" />
+		<color light="848484" dark="525252" name="Vanilla Black Body" />
+		<color light="FFCE00" dark="9C8400" name="Vanilla Black Gloss" />
+		<color light="FF84FF" dark="AD427B" name="Vanilla Pink Body" />
+		<color light="FFFF00" dark="7B8400" name="Vanilla Pink Gloss" />
+		<color light="42D6F7" dark="318C8C" name="Vanilla Azure Body" />
+		<color light="0084FF" dark="003994" name="Vanilla Azure Gloss" />
+		End of vanilla colors
+		-->
+		<color light="FF8C00" dark="842900" name="Orange" />
+		<color light="CC00FF" dark="94007B" name="Purple" />
+		<color light="7B7BFF" dark="4A4AB0" name="Medium Blue" />
+		<color light="CCCCFF" dark="8080E3" name="Periwinkle" />
+		<color light="CCCCFF" dark="B4B4E3" name="Periwinkle Blush" />
+		<color light="FFB0FF" dark="946672" name="Pale Pink" />
+		<color light="BDE0FE" dark="668BB0" name="Cotton Candy Blue" />
+		<color light="FFC8DD" dark="946B84" name="Cotton Candy Pink" />
+		<color light="FFC8DD" dark="E797B5" name="Cotton Candy Pink Blush" />
+		<color light="FC89AC" dark="944E6A" name="Tickle Me Pink" />
+		<color light="6BFFCE" dark="2C947B" name="Mint Green" />
+		<color light="C0C0C0" dark="808080" name="Medium Gray" />
+		<color light="FFAA52" dark="EB6109" name="Orange Sherbet" />
+		<color light="FF48B5" dark="942C6A" name="Vibrant Pink" />
+		<color light="FFCD6B" dark="946B38" name="Wheat Yellow" />
+		<color light="00ACAC" dark="008080" name="Dark Azure" />
+		<color light="FFFFFF" dark="C0C0C0" name="White" />
+		<color light="FFFFFF" dark="DBDBDB" name="Bright White" />
+		<color light="BA2010" dark="691209" name="NES Red" />
+		<color light="EB9A18" dark="84570D" name="NES Orange" />
+		<color light="C37900" dark="9A4900" name="NES Brown" />
+		<color light="388A00" dark="276000" name="NES Green" />
+		<color light="61B2FB" dark="437CAF" name="NES Azure" />
+		<color light="9DFF63" dark="59E338" name="NES Lime" />
+		<color light="4141FF" dark="2D2DB2" name="NES Blue" />
+		<color light="FF71CB" dark="B24F8D" name="NES Pink" />
+		<color light="FE71CB" dark="B2498A" name="NES Gold" />
+		<color light="494949" dark="303030" name="NES Black" />
+	</colors>
+	<palettes>
+		<!--
+		The vanilla palettes are hardcoded into the application and only listed here for reference
+		<palette name="Vanilla Green" color="green">
+			<body type="namedcolor" colorname="Vanilla Green Body" />
+			<gloss type="namedcolor" colorname="Vanilla Green Gloss" />
+			<blush type="namedcolor" colorname="Vanilla Monster Blush" />
+		</palette>
+		<palette name="Vanilla Blue" color="blue">
+			<body type="namedcolor" colorname="Vanilla Blue Body" />
+			<gloss type="namedcolor" colorname="Vanilla Blue Gloss" />
+			<blush type="namedcolor" colorname="Vanilla Monster Blush" />
+		</palette>
+		<palette name="Vanilla Red" color="red">
+			<body type="namedcolor" colorname="Vanilla Red Body" />
+			<gloss type="namedcolor" colorname="Vanilla Red Gloss" />
+			<blush type="namedcolor" colorname="Vanilla Monster Blush" />
+		</palette>
+		<palette name="Vanilla Yellow" color="tellow">
+			<body type="namedcolor" colorname="Vanilla Yellow Body" />
+			<gloss type="namedcolor" colorname="Vanilla Yellow Gloss" />
+			<blush type="namedcolor" colorname="Vanilla Monster Blush" />
+		</palette>
+		<palette name="Vanilla White" color="white">
+			<body type="namedcolor" colorname="Vanilla White Body" />
+			<gloss type="namedcolor" colorname="Vanilla White Gloss" />
+			<blush type="namedcolor" colorname="Vanilla Monster Blush" />
+		</palette>
+		<palette name="Vanilla Black" color="black">
+			<body type="namedcolor" colorname="Vanilla Black Body" />
+			<gloss type="namedcolor" colorname="Vanilla Black Gloss" />
+			<blush type="namedcolor" colorname="Vanilla Monster Blush" />
+		</palette>
+		<palette name="Vanilla Pink" color="pink">
+			<body type="namedcolor" colorname="Vanilla Pink Body" />
+			<gloss type="namedcolor" colorname="Vanilla Pink Gloss" />
+			<blush type="namedcolor" colorname="Vanilla Monster Blush" />
+		</palette>
+		<palette name="Vanilla Azure" color="azure">
+			<body type="namedcolor" colorname="Vanilla Azure Body" />
+			<gloss type="namedcolor" colorname="Vanilla Azure Gloss" />
+			<blush type="namedcolor" colorname="Vanilla Monster Blush" />
+		</palette>
+		End of vanilla palettes
+		-->
+		<palette name="Vanilla Green Inverted" color="green">
+			<body type="namedcolor" colorname="Vanilla Green Gloss" />
+			<gloss type="namedcolor" colorname="Vanilla Green Body" />
+			<blush type="namedcolor" colorname="Vanilla Monster Blush" />
+		</palette>
+		<palette name="Vanilla Blue Inverted" color="blue">
+			<body type="namedcolor" colorname="Vanilla Blue Gloss" />
+			<gloss type="namedcolor" colorname="Vanilla Blue Body" />
+			<blush type="namedcolor" colorname="Vanilla Monster Blush" />
+		</palette>
+		<palette name="Vanilla Red Inverted" color="red">
+			<body type="namedcolor" colorname="Vanilla Red Gloss" />
+			<gloss type="namedcolor" colorname="Vanilla Red Body" />
+			<blush type="namedcolor" colorname="Vanilla Monster Blush" />
+		</palette>
+		<palette name="Vanilla Yellow Inverted" color="yellow">
+			<body type="namedcolor" colorname="Vanilla Yellow Gloss" />
+			<gloss type="namedcolor" colorname="Vanilla Yellow Body" />
+			<blush type="namedcolor" colorname="Vanilla Monster Blush" />
+		</palette>
+		<palette name="Vanilla White Inverted" color="white">
+			<body type="namedcolor" colorname="Vanilla White Gloss" />
+			<gloss type="namedcolor" colorname="Vanilla White Body" />
+			<blush type="namedcolor" colorname="Vanilla Monster Blush" />
+		</palette>
+		<palette name="Vanilla Black Inverted" color="black">
+			<body type="namedcolor" colorname="Vanilla Black Gloss" />
+			<gloss type="namedcolor" colorname="Vanilla Black Body" />
+			<blush type="namedcolor" colorname="Vanilla Monster Blush" />
+		</palette>
+		<palette name="Vanilla Pink Inverted" color="pink">
+			<body type="namedcolor" colorname="Vanilla Pink Gloss" />
+			<gloss type="namedcolor" colorname="Vanilla Pink Body" />
+			<blush type="namedcolor" colorname="Vanilla Monster Blush" />
+		</palette>
+		<palette name="Vanilla Azure Inverted" color="azure">
+			<body type="namedcolor" colorname="Vanilla Azure Gloss" />
+			<gloss type="namedcolor" colorname="Vanilla Azure Body" />
+			<blush type="namedcolor" colorname="Vanilla Monster Blush" />
+		</palette>
+		<palette name="Periwinkler" color="azure">
+			<body type="namedcolor" colorname="Periwinkle" />
+			<gloss type="namedcolor" colorname="Pale Pink" />
+			<blush type="namedcolor" colorname="White" />
+		</palette>
+		<palette name="Cotton Candy" color="pink">
+			<body type="namedcolor" colorname="Cotton Candy Pink" />
+			<gloss type="namedcolor" colorname="Cotton Candy Blue" />
+			<blush type="namedcolor" colorname="White" />
+		</palette>
+		<palette name="Minty Fresh" color="green">
+			<body type="namedcolor" colorname="Mint Green" />
+			<gloss type="namedcolor" colorname="Medium Gray" />
+			<blush type="namedcolor" colorname="White" />
+		</palette>
+		<palette name="Blueberry" color="blue">
+			<body type="namedcolor" colorname="Medium Blue" />
+			<gloss type="namedcolor" colorname="Purple" />
+			<blush type="namedcolor" colorname="White" />
+		</palette>
+		<palette name="Orangey Sherbet" color="yellow">
+			<body type="namedcolor" colorname="Orange Sherbet" />
+			<gloss type="namedcolor" colorname="Vanilla Red Gloss" />
+			<blush type="namedcolor" colorname="White" />
+		</palette>
+		<palette name="Lemony Squeeze" color="yellow">
+			<body type="namedcolor" colorname="Vanilla Green Gloss" />
+			<gloss type="namedcolor" colorname="Tickle Me Pink" />
+			<blush type="namedcolor" colorname="White" />
+		</palette>
+		<palette name="White With Gloves" color="white">
+			<body type="namedcolor" colorname="Vanilla White Body" />
+			<gloss type="namedcolor" colorname="Vanilla Red Body" />
+			<blush type="namedcolor" colorname="White" />
+		</palette>
+		<palette name="Black And Shiny" color="black">
+			<body type="namedcolor" colorname="Vanilla Black Body" />
+			<gloss type="namedcolor" colorname="Vanilla White Body" />
+			<blush type="namedcolor" colorname="White" />
+		</palette>
+		<palette name="Double Pink" color="pink">
+			<body type="namedcolor" colorname="Vibrant Pink" />
+			<gloss type="namedcolor" colorname="Tickle Me Pink" />
+			<blush type="namedcolor" colorname="Cotton Candy Pink Blush" />
+		</palette>
+		<palette name="Double Orange" color="yellow">
+			<body type="namedcolor" colorname="Orange" />
+			<gloss type="namedcolor" colorname="Orange Sherbet" />
+			<blush type="namedcolor" colorname="Periwinkle Blush" />
+		</palette>
+		<palette name="Double Purple" color="blue">
+			<body type="namedcolor" colorname="Purple" />
+			<gloss type="namedcolor" colorname="Tickle Me Pink" />
+			<blush type="namedcolor" colorname="Cotton Candy Pink Blush" />
+		</palette>
+		<palette name="Shaded NES Red" color="red">
+			<body type="namedcolor" colorname="NES Red" />
+			<gloss type="namedcolor" colorname="NES Orange" />
+			<blush type="namedcolor" colorname="NES Brown" />
+		</palette>
+		<palette name="Shaded NES Orange" color="yellow">
+			<body type="namedcolor" colorname="NES Orange" />
+			<gloss type="namedcolor" colorname="NES Red" />
+			<blush type="namedcolor" colorname="NES Brown" />
+		</palette>
+		<palette name="Shaded NES Green" color="green">
+			<body type="namedcolor" colorname="NES Green" />
+			<gloss type="namedcolor" colorname="NES Azure" />
+			<blush type="namedcolor" colorname="NES Lime" />
+		</palette>
+		<palette name="Shaded NES Blue" color="nlue">
+			<body type="namedcolor" colorname="NES Blue" />
+			<gloss type="namedcolor" colorname="NES Pink" />
+			<blush type="namedcolor" colorname="Bright White" />
+		</palette>
+		<palette name="Shaded NES Pink" color="pink">
+			<body type="namedcolor" colorname="NES Pink" />
+			<gloss type="namedcolor" colorname="NES Blue" />
+			<blush type="namedcolor" colorname="NES Brown" />
+		</palette>
+		<palette name="Shaded NES Azure" color="azure">
+			<body type="namedcolor" colorname="NES Azure" />
+			<gloss type="namedcolor" colorname="NES Green" />
+			<blush type="namedcolor" colorname="NES Lime" />
+		</palette>
+		<palette name="Shaded NES Black" color="black">
+			<body type="namedcolor" colorname="NES Black" />
+			<gloss type="namedcolor" colorname="NES Azure" />
+			<blush type="namedcolor" colorname="NES Gold" />
+		</palette>
+		<palette name="Shaded NES White" color="white">
+			<body type="namedcolor" colorname="Bright White" />
+			<gloss type="namedcolor" colorname="NES Brown" />
+			<blush type="namedcolor" colorname="NES Azure" />
+		</palette>
+			<palette name="Mario Mario" color="red">
+			<body type="inlinecolor" light="FF2100" dark="8C085A" />
+			<gloss type="inlinecolor" light="1094EF" dark="0010A5" />
+			<blush type="inlinecolor" light="EFC6AD" dark="CE7B9C" />
+		</palette>
+		<palette name="Wario" color="yellow">
+			<body type="inlinecolor" light="FFFF00" dark="909000" />
+			<gloss type="inlinecolor" light="94188C" dark="530D4F" />
+			<blush type="inlinecolor" light="DE6394" dark="F7BD84" />
+		</palette>
+		<palette name="Luigi Mario" color="green">
+			<body type="inlinecolor" light="31D600" dark="298C42" />
+			<gloss type="inlinecolor" light="109CEF" dark="0010A5" />
+			<blush type="inlinecolor" light="EFC6AD" dark="CE7B9C" />
+		</palette>
+		<palette name="Blue Yoshi" color="blue">
+			<body type="inlinecolor" light="527BEF" dark="183994" />
+			<gloss type="inlinecolor" light="E731A5" dark="C62184" />
+			<blush type="inlinecolor" light="FFFFFF" dark="CECED6" />
+		</palette>
+		<palette name="Princess Peach" color="pink">
+			<body type="inlinecolor" light="FF9CD6" dark="EF5294" />
+			<gloss type="inlinecolor" light="FFF710" dark="B5A500" />
+			<blush type="inlinecolor" light="FFE7DE" dark="D6ADA5" />
+		</palette>
+		<palette name="Rosalina" color="azure">
+			<body type="inlinecolor" light="BDE7E7" dark="84CECE" />
+			<gloss type="inlinecolor" light="FFEF00" dark="DEC600" />
+			<blush type="inlinecolor" light="FFDEC6" dark="FFC694" />
+		</palette>
+		<palette name="Waluigi" color="black">
+			<body type="inlinecolor" light="6331A5" dark="371B5D" />
+			<gloss type="inlinecolor" light="21296B" dark="12173C" />
+			<blush type="inlinecolor" light="FF8CC6" dark="F7A573" />
+		</palette>
+		<palette name="Toad" color="white">
+			<body type="inlinecolor" light="FFFFFF" dark="CEDEEF" />
+			<gloss type="inlinecolor" light="084AF7" dark="0431D6" />
+			<blush type="inlinecolor" light="E70010" dark="BD1821" />
+		</palette>
+	</palettes>
+	<themes>
+		<!--
+		The vanilla theme is hardcoded into the application and only listed here for reference
+		<theme name="Vanilla">
+			<red type="namedpalette" palettename="Vanilla Red" />
+			<yellow type="namedpalette" palettename="Vanilla Yellow" />
+			<green type="namedpalette" palettename="Vanilla Green" />
+			<blue type="namedpalette" palettename="Vanilla Blue" />
+			<pink type="namedpalette" palettename="Vanilla Pink" />
+			<azure type="namedpalette" palettename="Vanilla Azure" />
+			<black type="namedpalette" palettename="Vanilla Black" />
+			<white type="namedpalette" palettename="Vanilla White" />
+		</theme>
+		End of vanilla theme
+		-->
+		<theme name="NES (shaded)">
+			<red type="namedpalette" palettename="Shaded NES Red" />
+			<yellow type="namedpalette" palettename="Shaded NES Orange" />
+			<green type="namedpalette" palettename="Shaded NES Green" />
+			<blue type="namedpalette" palettename="Shaded NES Blue" />
+			<pink type="namedpalette" palettename="Shaded NES Pink" />
+			<azure type="namedpalette" palettename="Shaded NES Azure" />
+			<black type="namedpalette" palettename="Shaded NES Black" />
+			<white type="namedpalette" palettename="Shaded NES White" />
+		</theme>
+		<theme name="Inverted">
+			<red type="namedpalette" palettename="Vanilla Red Inverted" />
+			<yellow type="namedpalette" palettename="Vanilla Yellow Inverted" />
+			<green type="namedpalette" palettename="Vanilla Green Inverted" />
+			<blue type="namedpalette" palettename="Vanilla Blue Inverted" />
+			<pink type="namedpalette" palettename="Vanilla Pink Inverted" />
+			<azure type="namedpalette" palettename="Vanilla Azure Inverted" />
+			<black type="namedpalette" palettename="Vanilla Black Inverted" />
+			<white type="namedpalette" palettename="Vanilla White Inverted" />
+		</theme>
+		<theme name="Pastel">
+			<red type="namedpalette" palettename="Orangey Sherbet" />
+			<yellow type="namedpalette" palettename="Lemony Squeeze" />
+			<green type="namedpalette" palettename="Minty Fresh" />
+			<blue type="namedpalette" palettename="Blueberry" />
+			<pink type="namedpalette" palettename="Cotton Candy" />
+			<azure type="namedpalette" palettename="Periwinkler" />
+			<black type="namedpalette" palettename="Black And Shiny" />
+			<white type="namedpalette" palettename="White With Gloves" />
+		</theme>
+		<theme name="Oops! All Blue!">
+			<red type="childpalette">
+				<body type="inlinecolor" light="8080FF" dark="5050AC" />
+				<gloss type="inlinecolor" light="38F8FF" dark="08A0AC" />
+				<blush type="namedcolor" colorname="Periwinkle Blush" />
+				<suboutline type="inlinecolor" color="00004A" />
+			</red>
+			<yellow type="childpalette">
+				<body type="inlinecolor" light="3266DB" dark="124090" />
+				<gloss type="inlinecolor" light="90CED1" dark="307B88" />
+				<blush type="namedcolor" colorname="Periwinkle Blush" />
+				<suboutline type="inlinecolor" color="00004A" />
+			</yellow>
+			<green type="childpalette">
+				<body type="inlinecolor" light="26E2FF" dark="0890AC" />
+				<gloss type="inlinecolor" light="4040FF" dark="3030AC" />
+				<blush type="namedcolor" colorname="Periwinkle Blush" />
+				<suboutline type="inlinecolor" color="00004A" />
+			</green>
+			<blue type="childpalette">
+				<body type="inlinecolor" light="0000FF" dark="0000AC" />
+				<gloss type="inlinecolor" light="8171FF" dark="3A2CAC" />
+				<blush type="namedcolor" colorname="Periwinkle Blush" />
+				<suboutline type="inlinecolor" color="00004A" />
+			</blue>
+			<pink type="childpalette">
+				<body type="inlinecolor" light="7EA5D8" dark="46648F" />
+				<gloss type="inlinecolor" light="004BFF" dark="0030AC" />
+				<blush type="namedcolor" colorname="Periwinkle Blush" />
+				<suboutline type="inlinecolor" color="00004A" />
+			</pink>
+			<azure type="childpalette">
+				<body type="inlinecolor" light="7741FF" dark="4412AC" />
+				<gloss type="inlinecolor" light="44BBFF" dark="2255AA" />
+				<blush type="namedcolor" colorname="Periwinkle Blush" />
+				<suboutline type="inlinecolor" color="00004A" />
+			</azure>
+			<black type="childpalette">
+				<body type="inlinecolor" light="2A5C9C" dark="004060" />
+				<gloss type="inlinecolor" light="7E85C2" dark="414B82" />
+				<blush type="namedcolor" colorname="Periwinkle Blush" />
+				<suboutline type="inlinecolor" color="00004A" />
+			</black>
+			<white type="childpalette">
+				<body type="inlinecolor" light="8BEFFF" dark="4B9ACC" />
+				<gloss type="inlinecolor" light="00CECE" dark="008282" />
+				<blush type="namedcolor" colorname="Periwinkle Blush" />
+				<suboutline type="inlinecolor" color="00004A" />
+			</white>
+		</theme>
+		<theme name="Famicom">
+			<red type="childpalette">
+				<body type="inlinecolor" light="B53120" dark="B53120" />
+				<gloss type="inlinecolor" light="EA9E22" dark="EA9E22" />
+				<blush type="inlinecolor" light="994E00" dark="994E00" />
+			</red>
+			<yellow type="childpalette">
+				<body type="inlinecolor" light="EA9E22" dark="EA9E22" />
+				<gloss type="inlinecolor" light="B53120" dark="B53120" />
+				<blush type="inlinecolor" light="994E00" dark="994E00" />
+			</yellow>
+			<green type="childpalette">
+				<body type="inlinecolor" light="388700" dark="388700" />
+				<gloss type="inlinecolor" light="64B0FF" dark="64B0FF" />
+				<blush type="inlinecolor" light="5CE430" dark="5CE430" />
+			</green>
+			<blue type="childpalette">
+				<body type="inlinecolor" light="4240FF" dark="4240FF" />
+				<gloss type="inlinecolor" light="FE6ECC" dark="FE6ECC" />
+				<blush type="inlinecolor" light="994E00" dark="994E00" />
+			</blue>
+			<pink type="childpalette">
+				<body type="inlinecolor" light="FE6ECC" dark="FE6ECC" />
+				<gloss type="inlinecolor" light="4240FF" dark="4240FF" />
+				<blush type="inlinecolor" light="994E00" dark="994E00" />
+			</pink>
+			<azure type="childpalette">
+				<body type="inlinecolor" light="64B0FF" dark="64B0FF" />
+				<gloss type="inlinecolor" light="388700" dark="388700" />
+				<blush type="inlinecolor" light="5CE430" dark="5CE430" />
+			</azure>
+			<black type="childpalette">
+				<body type="inlinecolor" light="4F4F4F" dark="4F4F4F" />
+				<gloss type="inlinecolor" light="B53120" dark="B53120" />
+				<blush type="inlinecolor" light="BCBE00" dark="BCBE00" />
+			</black>
+			<white type="childpalette">
+				<body type="inlinecolor" light="FFFFFF" dark="FFFFFF" />
+				<gloss type="inlinecolor" light="994E00" dark="994E00" />
+				<blush type="inlinecolor" light="64B0FF" dark="64B0FF" />
+			</white>
+		</theme>
+		<theme name="Mushroom Kingdom">
+			<red type="namedpalette" palettename="Mario Mario" />
+			<yellow type="namedpalette" palettename="Wario" />
+			<green type="namedpalette" palettename="Luigi Mario" />
+			<blue type="namedpalette" palettename="Blue Yoshi" />
+			<pink type="namedpalette" palettename="Princess Peach" />
+			<azure type="namedpalette" palettename="Rosalina" />
+			<black type="namedpalette" palettename="Waluigi" />
+			<white type="namedpalette" palettename="Toad" />
+		</theme>
+			<theme name="Dropkick">
+			<red type="childpalette">
+				<body type="inlinecolor" light="B56B7B" dark="633C45" />
+				<gloss type="inlinecolor" light="63525A" dark="F7F7F7" />
+				<blush type="inlinecolor" light="FFEFDE" dark="CE9494" />
+			</red>
+			<yellow type="childpalette">
+				<body type="inlinecolor" light="EFD6B5" dark="BD8C84" />
+				<gloss type="inlinecolor" light="7BA5D6" dark="525AA5" />
+				<blush type="inlinecolor" light="FFEFE7" dark="D6A59C" />
+			</yellow>
+			<green type="childpalette">
+				<body type="inlinecolor" light="63BD7B" dark="217342" />
+				<gloss type="inlinecolor" light="F7E7A5" dark="C68273" />
+				<blush type="inlinecolor" light="F7EFDE" dark="E79C94" />
+			</green>
+			<blue type="childpalette">
+				<body type="inlinecolor" light="297BB5" dark="213163" />
+				<gloss type="inlinecolor" light="6B5A63" dark="212129" />
+				<blush type="inlinecolor" light="FFFFFF" dark="ADADD6" />
+			</blue>
+			<pink type="childpalette">
+				<body type="inlinecolor" light="F7BDBD" dark="9C6B8C" />
+				<gloss type="inlinecolor" light="E7CE7B" dark="A58C63" />
+				<blush type="inlinecolor" light="FFEFE7" dark="EFCEC6" />
+			</pink>
+			<azure type="childpalette">
+				<body type="inlinecolor" light="9C7BB5" dark="423973" />
+				<gloss type="inlinecolor" light="E7CE84" dark="B58C4A" />
+				<blush type="inlinecolor" light="FFEFE7" dark="CEA59C" />
+			</azure>
+			<black type="childpalette">
+				<body type="inlinecolor" light="6B6B63" dark="524A52" />
+				<gloss type="inlinecolor" light="DED6B5" dark="7B736B" />
+				<blush type="inlinecolor" light="F7F7F7" dark="A5ADB5" />
+			</black>
+			<white type="childpalette">
+				<body type="inlinecolor" light="EFEFEF" dark="B5B5BD" />
+				<gloss type="inlinecolor" light="7B94C6" dark="526B9C" />
+				<blush type="inlinecolor" light="B54A6B" dark="73294A" />
+			</white>
+		</theme>
+		<theme name="Flat">
+			<red type="childpalette">
+				<body type="inlinecolor" light="FF3129" dark="FF3129" />
+				<gloss type="inlinecolor" light="FF3129" dark="FF3129" />
+				<blush type="inlinecolor" light="FF3129" dark="FF3129" />
+				<suboutline type="inlinecolor" color="212121" />
+			</red>
+			<yellow type="childpalette">
+				<body type="inlinecolor" light="EFEF21" dark="EFEF21" />
+				<gloss type="inlinecolor" light="EFEF21" dark="EFEF21" />
+				<blush type="inlinecolor" light="EFEF21" dark="EFEF21" />
+				<suboutline type="inlinecolor" color="212121" />
+			</yellow>
+			<green type="childpalette">
+				<body type="inlinecolor" light="42CE00" dark="42CE00" />
+				<gloss type="inlinecolor" light="42CE00" dark="42CE00" />
+				<blush type="inlinecolor" light="42CE00" dark="42CE00" />
+				<suboutline type="inlinecolor" color="212121" />
+			</green>
+			<blue type="childpalette">
+				<body type="inlinecolor" light="0084FF" dark="0084FF" />
+				<gloss type="inlinecolor" light="0084FF" dark="0084FF" />
+				<blush type="inlinecolor" light="0084FF" dark="0084FF" />
+				<suboutline type="inlinecolor" color="212121" />
+			</blue>
+			<pink type="childpalette">
+				<body type="inlinecolor" light="FF84FF" dark="FF84FF" />
+				<gloss type="inlinecolor" light="FF84FF" dark="FF84FF" />
+				<blush type="inlinecolor" light="FF84FF" dark="FF84FF" />
+				<suboutline type="inlinecolor" color="212121" />
+			</pink>
+			<azure type="childpalette">
+				<body type="inlinecolor" light="42D6F7" dark="42D6F7" />
+				<gloss type="inlinecolor" light="42D6F7" dark="42D6F7" />
+				<blush type="inlinecolor" light="42D6F7" dark="42D6F7" />
+				<suboutline type="inlinecolor" color="212121" />
+			</azure>
+			<black type="childpalette">
+				<body type="inlinecolor" light="848484" dark="848484" />
+				<gloss type="inlinecolor" light="848484" dark="848484" />
+				<blush type="inlinecolor" light="848484" dark="848484" />
+				<suboutline type="inlinecolor" color="212121" />
+			</black>
+			<white type="childpalette">
+				<body type="inlinecolor" light="EFEFEF" dark="EFEFEF" />
+				<gloss type="inlinecolor" light="EFEFEF" dark="EFEFEF" />
+				<blush type="inlinecolor" light="EFEFEF" dark="EFEFEF" />
+				<suboutline type="inlinecolor" color="212121" />
+			</white>
+		</theme>
+
+	</themes>
+</data>

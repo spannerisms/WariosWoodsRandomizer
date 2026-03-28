@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<categories>
+	<category name="Getting started">
+		<group name="Base ROM">
+			<description>Before generating, you will need to provide a clean copy of the Wario's Woods (SNES) ROM binary image. Once you have done so, the rest of the form is enabled.</description>
+		</group>
+		<group name="Generating">
+			<description>The main tab contains settings, a picture of Sarissa, and a button suggesting it can generate seeds.</description>
+			<description>Up to 100 seeds may be generated at a time, with said amount changeable by the box next to the generate button.</description>
+			<description>Files will be saved to the output directory as {{woodsrando-[hash] ([flags]).sfc}}.</description>
+		</group>
+	</category>
+	<category name="Settings">
+		<group name="Monsters">
+			<description>Choose which monster types will be randomized into each level.</description>
+			<item name="All">Toggles every monster type</item>
+			<item name="Squeak">Toggle availability of Squeak</item>
+			<item name="Spud">Toggle availability of Spud</item>
+			<item name="Fuzz">Toggle availability of Fuzz</item>
+			<item name="Beaker">Toggle availability of Beaker</item>
+			<item name="Scram">Toggle availability of Scram</item>
+			<item name="Dovo">Toggle availability of Dovo</item>
+			<item name="Spook">Toggle availability of Spook</item>
+		</group>
+		<group name="Play as">
+			<description>Choose which character graphics to use for the player</description>
+			<item name="Toad" />
+			<item name="Katsini" />
+			<item name="Galrog" />
+			<item name="Harley Q" />
+			<item name="SamSpook" />
+			<item name="Sven" />
+			<item name="Parrotor" />
+			<item name="Mssr Boo" />
+			<item name="Aqualea" />
+			<item name="Razor" />
+			<item name="Tad Rock" />
+			<item name="Thak" />
+			<item name="Lizardon" />
+			<item name="Sarissa" />
+			<item name="Mangylox" />
+			<item name="Dedar" />
+			<item name="Carlton" />
+			<item name="Harry H" />
+			<item name="Wario">Play as this character.</item>
+			<item name="{SPLAT}Random">Play as a random character</item>
+		</group>
+		<group name="Board">
+			<description>Choose which algorithm to use for filling the board with monsters.</description>
+			<item name="Progressive">Boards are populated with a number of enemies and with column heights that scale with round number.</item>
+			<item name="Easy">Boards are populated with few enemies and short columns.</item>
+			<item name="Medium">Boards are populated with a fair number of enemies and reasonably tall columns.</item>
+			<item name="Hard">Boards are populated with many enemies and tall columns.</item>
+			<item name="Expert">Boards are populated with a lot of enemies and very tall columns.</item>
+			<item name="FullFill">Boards are populated by filling all columns to the same height of either 8 or 9 monsters tall.</item>
+			<item name="Simple shuffle">Each board has its vanilla columns shuffled around.</item>
+			<item name="Advanced shuffle">Each board has the same number of monsters as in vanilla but with different columns.</item>
+		</group>
+		<group name="Colors">
+			<description>Choose which algorithm to use for coloring monsters. Note that this only picks the maximum number; some colors may still end up unused just by chance.</description>
+			<item name="Progressive">The maximum number of colors per board scales with round number.</item>
+			<item name="All colors">The maximum number of colors per board is 8.</item>
+			<item name="Random">The maximum number of colors per board is from 6 to 8.</item>
+			<item name="Chaotic">The maximum number of colors per board is from 1 to 8.</item>
+		</group>
+		<group name="Difficulty">
+			<description>Set the difficulty of the game, which controls Wario's aggressiveness, level pacing, and coins.</description>
+			<item name="Progressive">Difficulty scales with round number.</item>
+			<item name="Easy">Slow-paced rounds. Coins scale with round number.</item>
+			<item name="Medium">Medium-paced rounds. Coins scale with round number.</item>
+			<item name="Hard">Fast-paced rounds. Coins do not scale with round number.</item>
+			<item name="Expert">Very-fast-paced rounds. Coins do not scale with round number.</item>
+			<item name="Chaos">Every setting is all over the place with no correlation to be found anywhere.</item>
+		</group>
+		<group name="RNG">
+			<description>Select an RNG algorithm to use for each seed.</description>
+			<item name="Vanilla">Uses the vanilla RNG, which reads from a precalculated table of values.</item>
+			<item name="Remixed">Uses the vanilla RNG, but provides a new table of precalculated values.</item>
+			<item name="Floppy">Combines a simple LFSR with the vanilla table for the best of both worlds.</item>
+			<item name="Shifty">Uses a simple XORshift algorithm.</item>
+			<item name="ALTTP">Uses the scanning-beam-based solution employed by Zelda 3.</item>
+		</group>
+		<group name="Lives">
+			<description>Choose how many lives to start with when starting a new round game.</description>
+			<item name="0">Start with 0 lives. This is the vanilla behavior.</item>
+			<item name="1–9">Start with this many lives.</item>
+			<item name="∞">Start with 1 life that is never lost. No coins will be granted.</item>
+		</group>
+		<group name="Theme">
+			<description>Choose the colors of the monsters and other items on the board.</description>
+			<description>Custom palettes can be defined by editing the included {{palettes.xml}} file. See Customization § Themes for more information.</description>
+			<item name="Vanilla">Uses the vanilla theme.</item>
+			<item name="[named theme]">Uses this theme.</item>
+			<item name="{SPLAT}Random">Picks a random theme from the available list.</item>
+			<item name="{SPLAT}Hodgepodge">Generates a new theme from random palettes of appropriate colors.</item>
+			<item name="{SPLAT}Potpurri">Generates a new theme from random palettes.</item>
+			<item name="{SPLAT}Shifted">Generates a random theme using the same hues as vanilla.</item>
+		</group>
+		<group name="Other options">
+			<description>Other options</description>
+			<item name="Endurance">In endurance mode, your progress is remembered, but you cannot continue from the last checkpoint. You must always restart from round 1 after a game over.</item>
+			<item name="Simple rounds">When simple rounds are enabled, each round will only have 1 level associated with it. This is in contrast to vanilla, where most rounds have 2 levels.</item>
+			<item name="Direct deposit">With direct deposit, all coins earned at the end of a round are automatically added to your total, allowing for speedier games without sacrificing safety.</item>
+		</group>
+	</category>
+	<category name="Customization">
+		<group name="Themes">
+			<description>Included with the app is the file {{palettes.xml}}. This file contains 3 groups of items to customize the board palette.</description>
+			<description>Detailed instructions on the format are contained in the file at the top.</description>
+			<item name="{{colors}}">This node contains individual {{&lt;color&gt;}} nodes with a case-insensitive name and a color-shade pair for easy reuse.</item>
+			<item name="{{palettes}}">This node contains individual {{&lt;palette&gt;}} nodes with a case-insensitive name and the definitions for 7 colors.</item>
+			<item name="{{themes}}">This node contains individual {{&lt;palette&gt;}} nodes with a case-insensitive name and the definitions for 7 colors.</item>
+		</group>
+		<group name="Skins">
+			<description>This app creates a file named {{sprites.xml}} after you provide it with a vanilla ROM.</description>
+			<description>Files for custom player skins are kept in the {{data}} folder. These files should be left alone.</description>
+		</group>
+	</category>
+</categories>
