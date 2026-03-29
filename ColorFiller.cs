@@ -3,6 +3,7 @@
 internal class ColorFiller {
 	public string Name { get; }
 	public string Token { get; }
+
 	private readonly Action<Level, int> Filler;
 	private ColorFiller(string name, string token, Action<Level, int> filler) {
 		Name = name;
@@ -20,7 +21,7 @@ internal class ColorFiller {
 	}
 
 	public static readonly ColorFiller Progressive = new("Progressive", "p", (level, round) => {
-		(int maxColor, int minColor) = round switch {
+		(int minColor, int maxColor) = round switch {
 			< 5  => (1, 2),
 			< 10 => (2, 3),
 			< 20 => (2, 4),
@@ -36,7 +37,8 @@ internal class ColorFiller {
 			_    => (8, 8)
 		};
 
-		int colorsUsed = CommonRNG.Next(minColor, maxColor+1);
+		// kinda odd, but this should be inclusive while the shuffle should not
+		int colorsUsed = CommonRNG.NextInclusive(minColor, maxColor);
 		ShuffleLevelColors(level, colorsUsed);
 	});
 
@@ -45,19 +47,21 @@ internal class ColorFiller {
 	});
 
 	public static readonly ColorFiller Random = new("Random", "r", (level, round) => {
-		int maxColor = CommonRNG.Next(6, 8);
+		int maxColor = CommonRNG.NextInclusive(6, 8);
 
 		ShuffleLevelColors(level, maxColor);
 	});
 
 	public static readonly ColorFiller Chaotic = new("Chaotic", "c", (level, round) => {
-		int maxColor = CommonRNG.Next(1, 8);
+		int maxColor = CommonRNG.NextInclusive(1, 8);
 
 		ShuffleLevelColors(level, maxColor);
 	});
 
 	private static void ShuffleLevelColors(Level level, int maxColors) {
 		ObjectColor[] ret = Enum.GetValues<ObjectColor>();
+
+		// shuffle it so that every color has an equal opportunity, regardless of the count
 		CommonRNG.Shuffle(ret);
 
 		level.ForAllObjects(o => o.Color = ret[CommonRNG.Next(0, maxColors)]);

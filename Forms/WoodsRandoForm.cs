@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO.IsolatedStorage;
 using System.Xml;
@@ -20,6 +19,9 @@ public partial class WoodsRandoForm : Form {
 	private readonly HelpForm helpWindow = new();
 	private readonly ResetDataForm resetWindow = new();
 	private readonly PalettesForm palWindow = new();
+	private readonly UpdateAnnouncer UpdateShower = new();
+
+	private bool BTypeControls = false;
 
 	private WoodsROM? Vanilla = null;
 
@@ -38,8 +40,9 @@ public partial class WoodsRandoForm : Form {
 	};
 
 	public WoodsRandoForm() {
-		InitializeComponent();
 		StatusLog.LogMessage("Initializing...");
+
+		InitializeComponent();
 
 		if (!Program.PalettesXML.Exists) {
 			StatusLog.LogMessage("No palettes.xml file found; creating default file");
@@ -66,8 +69,7 @@ public partial class WoodsRandoForm : Form {
 		HelpMeButton.Tag = helpWindow;
 
 		SuspendLayout();
-		VersionLabel.Text = $"v{Program.Version}";
-		VersionLabel.ToolTipText = $"Wario's Woods Randomizer - version {Program.Version}";
+		RestyleForVersion();
 
 		Settings.Reload();
 
@@ -89,12 +91,12 @@ public partial class WoodsRandoForm : Form {
 		DifficultyBox.SelectedItem = DifficultySelect.ListOf.FindMatchingSetting(Settings.Difficulty, DifficultySelect.Expert);
 		RNGBox.SelectedItem = RNGAlgorithm.ListOf.FindMatchingSetting(Settings.RNGAlgorithm, RNGAlgorithm.Floppy);
 
-
 		DirectDepositBox.Checked = Settings.DirectDeposit;
 		SimpleRoundsBox.Checked = Settings.SimpleRounds;
 		EnduranceBox.Checked = Settings.EnduranceMode;
 
 		StartingLivesBox.SelectedIndex = int.Clamp(Settings.StartingLives, 0, StartingLivesBox.Items.Count - 1);
+		SetControlType(Settings.ButtonSelect);
 
 		StatusLog.LogMessage("Settings loaded.");
 
@@ -557,12 +559,12 @@ public partial class WoodsRandoForm : Form {
 
 			TaskFinished();
 
-			UpdateStatus($"Generated {generationCount} seed{SimplePluralS(generationCount)} with the given settings.");
+			UpdateStatus($"Generated {SimplePluralS("seed", generationCount)} with the given settings.");
 		} catch (Exception ee) {
 			if (generationCount == 0) {
 				UpdateStatus($"Failed before generating anything.");
 			} else {
-				UpdateStatus($"Generated {generationCount} seed{SimplePluralS(generationCount)} before failing.");
+				UpdateStatus($"Generated {SimplePluralS("seed", generationCount)} before failing.");
 			}
 
 			TaskAborted();
@@ -588,7 +590,7 @@ public partial class WoodsRandoForm : Form {
 
 		var nm = (int) GenCount.Value;
 
-		StatusLog.LogMessage($"Starting generation of {nm} seed{SimplePluralS(nm)}...");
+		StatusLog.LogMessage($"Starting generation of {SimplePluralS("seed", nm)}...");
 
 		MonsterType[] allowedTypes = (
 			from mtype in AllowedTypes
@@ -687,8 +689,10 @@ public partial class WoodsRandoForm : Form {
 			};
 
 			// See Patches/base.asm # Randomizer constants
-			rom.Write16i(0x81E800, CommonRNG.Next(1, 0x10000));
-			rom.Write16i(0x81E802, CommonRNG.Next(1, 0x10000));
+			rom.Write16i(0x81E800, CommonRNG.NextInclusive(0x0001, 0xFFFF));
+			rom.Write16i(0x81E802, CommonRNG.NextInclusive(0x0001, 0xFFFF));
+
+			rom.Write8(0x81E806, (byte) (BTypeControls ? 1 : 0));
 
 			//if (respect) {
 			//	var enemyspeed = rom.AsSpan(0x80D2AD, 7 * 8);
@@ -699,7 +703,7 @@ public partial class WoodsRandoForm : Form {
 			//
 			//}
 
-			byte warioSpeed = CommonRNG.NextByte(3, 8);
+			byte warioSpeed = CommonRNG.NextByteInclusive(3, 8);
 			rom.Write8(0x87916A, warioSpeed);
 			rom.Write8(0x8791C1, warioSpeed);
 
@@ -710,7 +714,7 @@ public partial class WoodsRandoForm : Form {
 
 			// TODO move this to an Action<WoodsROM>?
 			if (guystring is RandomChoice) {
-				guy = Utility.GetRandomElement(CharacterGraphics.AllSheets); // TODO this
+				guy = CommonRNG.GetRandomElement(CharacterGraphics.AllSheets); // TODO this
 			} else {
 				guy = selguy;
 			}
@@ -724,7 +728,7 @@ public partial class WoodsRandoForm : Form {
 					pal = selpal;
 				} else if (guy.Palettes.Count > 0) {
 					pal = palstring switch {
-						RandomChoice => Utility.GetRandomElement(guy.Palettes),
+						RandomChoice => CommonRNG.GetRandomElement(guy.Palettes),
 						DefaultChoice => guy.Palettes[0],
 						_ => guy.Palettes[0]
 					};
@@ -804,7 +808,7 @@ public partial class WoodsRandoForm : Form {
 		];
 
 	private void RandomGreeting() {
-		StatusInfoText.Text = Greetings.GetRandomElement();
+		StatusInfoText.Text = CommonRNG.GetRandomElement(Greetings);
 	}
 
 	private void OutputDirectoryButton_MouseClick(object sender, MouseEventArgs e) {
@@ -818,16 +822,16 @@ public partial class WoodsRandoForm : Form {
 	}
 
 	private void UploadROMButton_Click(object sender, EventArgs e) {
-		OpenROM.FileName = $"{WoodsROM.PreferredFilename}.sfc";
+		MessageDialogs.OpenROM.FileName = $"{WoodsROM.PreferredFilename}.sfc";
 
-		if (OpenROM.ShowDialog() is not DialogResult.OK) {
+		if (MessageDialogs.OpenROM.ShowDialog() is not DialogResult.OK) {
 			return;
 		}
 
 		byte[] romData;
 
 		try {
-			using var fs = OpenROM.OpenFile();
+			using var fs = MessageDialogs.OpenROM.OpenFile();
 			romData = fs.GetAsArray();
 		} catch (Exception ee) {
 			SetVanillaROM(null);
@@ -850,7 +854,7 @@ public partial class WoodsRandoForm : Form {
 
 			if (status.HasFlag(WoodsROMValidity.BadSize)) {
 				reason = "The expected ROM size is 1MB (1,048,576 bytes).";
-			}else if (status.HasFlag(WoodsROMValidity.NotEvenWoods)) {
+			} else if (status.HasFlag(WoodsROMValidity.NotEvenWoods)) {
 				reason = "This appears to be a different game based on its title.";
 			} else if (status.HasFlag(WoodsROMValidity.BadHash)) {
 				reason = "Something is wrong with this ROM.";
@@ -908,7 +912,7 @@ public partial class WoodsRandoForm : Form {
 			CreateCompressedCharacterData,
 			RefreshCharacterSelection
 		);
-		
+
 	}
 
 	private void ShowLogButton_Click(object sender, EventArgs e) {
@@ -954,10 +958,11 @@ public partial class WoodsRandoForm : Form {
 		Settings.StartingLives = StartingLivesBox.SelectedIndex;
 		Settings.EnduranceMode = EnduranceBox.Checked;
 
+		Settings.ButtonSelect = BTypeControls;
+
 		Settings.Save();
 	}
 
-	private int sarissaclicks = 0;
 	private void SarissaClick(object sender, EventArgs e) {
 		UpdateStatus("Sarissa clicked.");
 		RandomGreeting();
@@ -1044,5 +1049,52 @@ public partial class WoodsRandoForm : Form {
 			CharacterPaletteBox.Visible = false;
 		}
 		CharacterPaletteBox.EndUpdate();
+	}
+
+	private void ButtonSelectButton_Click(object sender, EventArgs e) {
+		SetControlType(!BTypeControls);
+	}
+
+	private void SetControlType(bool btype) {
+		BTypeControls = btype;
+		ButtonSelectButton.Text = btype ? "B-type" : "A-type";
+	}
+
+	private void RestyleForVersion() {
+		if (UpdateShower.Compare is int comp) {
+			switch (comp) {
+				case < 0:
+					VersionLabel.BackColor = Color.SpringGreen;
+					VersionLabel.ForeColor = Color.Green;
+					VersionLabel.Text = "Update!";
+					break;
+
+				case 0:
+					VersionLabel.BackColor = Color.Silver;
+					VersionLabel.ForeColor = Color.DimGray;
+					VersionLabel.Text = UpdateAnnouncer.VersionString;
+					break;
+
+				case > 0:
+					VersionLabel.BackColor = Program.Periwinkle;
+					VersionLabel.ForeColor = Program.DarkPeriwinkle;
+					VersionLabel.Text = "Beta";
+					break;
+			}
+		} else {
+			VersionLabel.BackColor = Color.Orange;
+			VersionLabel.ForeColor = Color.Maroon;
+			VersionLabel.Text = "Problem";
+		}
+	}
+
+	private void VersionLabel_Click(object sender, EventArgs e) {
+		int? lastCompare = UpdateShower.Compare;
+
+		UpdateShower.ShowAndCheckForUpdates();
+
+		if (lastCompare != UpdateShower.Compare) {
+			RestyleForVersion();
+		}
 	}
 }

@@ -52,6 +52,7 @@ SeedSRAM                      = $700100
 InitialRNG                    = $81E800
 RoundReseed                   = $81E802
 StartingLives                 = $81E804
+InitialButtonSelect           = $81E806
 
 ;===================================================================================================
 ; Reserved areas

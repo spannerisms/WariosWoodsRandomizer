@@ -8,8 +8,6 @@ using System.Reflection;
 
 namespace WoodsRandomizer;
 
-// dotnet publish -p:PublishProfile=Properties/PublishProfiles/FolderProfile.pubxml
-
 internal static class Program {
 	/// <summary>
 	///  The main entry point for the application.
@@ -38,6 +36,7 @@ internal static class Program {
 	internal static readonly FileInfo PalettesXML;
 	internal static readonly FileInfo SpritesXML;
 
+
 	static Program() {
 		LocalData = new(Path.Join(AppPath, "data"));
 		BaseGraphicsData = new(Path.Join(LocalData.FullName, "base"));
@@ -49,12 +48,10 @@ internal static class Program {
 
 		PalettesXML = LocalData.GetFile("palettes.xml");
 		SpritesXML = LocalData.GetFile("sprites.xml");
+
 	}
 
-
 	private static readonly Assembly ass = typeof(Program).Assembly;
-
-	public static readonly string Version = ass.GetName()?.Version?.ToString(3) ?? "?????";
 
 	private static void EnsureExistence(DirectoryInfo dir) {
 		if (!dir.Exists) {
@@ -67,4 +64,8 @@ internal static class Program {
 		name = name.Replace('/', '.');
 		return ass.GetManifestResourceStream($"WoodsRandomizer.{name}");
 	}
+
+	internal static readonly Color Periwinkle = Color.FromArgb(0xCC, 0xCC, 0xFF);
+	internal static readonly Color DarkPeriwinkle = Color.FromArgb(0x64, 0x64, 0xC8);
+
 }

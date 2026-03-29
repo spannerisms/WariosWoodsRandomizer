@@ -1,5 +1,4 @@
 ﻿using System.Runtime.CompilerServices;
-using System.Text.RegularExpressions;
 
 namespace WoodsRandomizer;
 
@@ -17,30 +16,14 @@ internal static partial class Utility {
 	/// </summary>
 	public const string SPLAT = "\u2756";
 
-	public static readonly Random CommonRNG = new();
 
+	public static readonly Random CommonRNG = new();
 
 	public static LoggedMessage LogMessage(this List<LoggedMessage> list, string message) {
 		LoggedMessage add = new(message);
 		list.Add(add);
 		return add;
 	}
-
-
-
-
-	public static T GetRandomElement<T>(this IList<T> a) {
-		return a[CommonRNG.Next(0, a.Count)];
-	}
-
-	public static T GetRandomElementWhere<T>(this IList<T> a, Func<T, bool> predicate) {
-		return a.Where(predicate).ElementAt(CommonRNG.Next(0, a.Count));
-	}
-
-	internal static readonly OpenFileDialog OpenROM = new() {
-		Filter = "SNES ROM file|*.sfc; *.smc",
-		Title = "Select a ROM file",
-	};
 
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int SNESToPC(int a) {
@@ -64,14 +47,10 @@ internal static partial class Utility {
 		return ret;
 	}
 
-	public static string SimplePluralS(int count) {
-		if (count == 1) return "";
-		return "s";
-	}
-
-	public static byte NextByte(this Random r, int min, int max) {
-		return (byte) r.Next(min, max);
-	}
+	public static string SimplePluralS(string thing, int count) => count switch {
+		1 => $"1 {thing}",
+		_ => $"{count} {thing}s"
+	};
 
 	//[GeneratedRegex(@"(?<=^)[A-F\d]{6}$", RegexOptions.Compiled)]
 	//internal static partial Regex HexColorMatchRegex();
@@ -93,10 +72,6 @@ internal static partial class Utility {
 		//color = -1;
 		//return false;
 	}
-
-
-
-
 
 	public static object FindMatchingSetting(this IEnumerable<object> list, string setting, object defolt) {
 		return list.FirstOrDefault(o => o.ToString() == setting, defolt);

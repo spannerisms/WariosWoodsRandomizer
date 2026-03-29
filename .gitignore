@@ -13,3 +13,4 @@ obj/*
 */Setup/*
 Patches/*.exe
 Properties/PublishProfiles/*
+_publish.bat

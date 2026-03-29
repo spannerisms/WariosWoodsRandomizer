@@ -1,6 +1,13 @@
 ﻿namespace WoodsRandomizer;
 
 internal static class MessageDialogs {
+
+	internal static readonly OpenFileDialog OpenROM = new() {
+		Filter = "SNES ROM file|*.sfc; *.smc",
+		Title = "Select a ROM file",
+	};
+
+
 	public static readonly TaskDialogPage SarissaWarning;
 	public static readonly TaskDialogPage GeneralWarning;
 	public static readonly TaskDialogExpander GeneralWarningExpander;

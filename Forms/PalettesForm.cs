@@ -78,13 +78,13 @@ internal partial class PalettesForm : Form {
 	}
 
 	private void PickRomButton_Click(object sender, EventArgs e) {
-		OpenROM.InitialDirectory = Properties.Settings.Default.OutputDirectory;
+		MessageDialogs.OpenROM.InitialDirectory = Properties.Settings.Default.OutputDirectory;
 
-		if (OpenROM.ShowDialog() is not DialogResult.OK) {
+		if (MessageDialogs.OpenROM.ShowDialog() is not DialogResult.OK) {
 			return;
 		}
 
-		using var filestream = OpenROM.OpenFile();
+		using var filestream = MessageDialogs.OpenROM.OpenFile();
 		byte[] rom = filestream.GetAsArray();
 
 		BoardTheme thisTheme = BoardTheme.FromROM(rom);

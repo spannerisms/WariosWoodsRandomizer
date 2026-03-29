@@ -15,6 +15,7 @@ internal class BoardFiller {
 	public override string ToString() => Name;
 
 	public static ImmutableArray<BoardFiller> ListOf { get; }
+
 	static BoardFiller() {
 		ListOf = [Progressive, Easy, Medium, Hard, Expert, FullFill, SimpleShuffle, AdvancedShuffle];
 	}
@@ -22,7 +23,7 @@ internal class BoardFiller {
 	public static readonly BoardFiller Progressive = new("Progressive", "p", (level, round) => {
 		int maxHeight = GetProgressiveTallestColumn(round);
 
-		maxHeight += CommonRNG.Next(-1, 2);
+		maxHeight += CommonRNG.NextInclusive(-1, 2);
 		maxHeight = int.Clamp(maxHeight, 1, 11);
 
 		// get random number of monsters to use
@@ -33,7 +34,12 @@ internal class BoardFiller {
 		at = int.Max(at, 5);
 		bt = int.Min(bt, 65);
 
-		int allot = CommonRNG.Next(at, bt);
+		if (at > bt) {
+			(at, bt) = (bt, at);
+		}
+
+
+		int allot = CommonRNG.NextInclusive(at, bt);
 
 		BuildCompleteBoard(level, allot, maxHeight);
 	});
@@ -51,31 +57,31 @@ internal class BoardFiller {
 	});
 
 	public static readonly BoardFiller Easy = new("Easy", "e", (level, round) => {
-		int allot = CommonRNG.Next(20, 30);
-		int maxHeight = CommonRNG.Next(5, 8);
+		int allot = CommonRNG.NextInclusive(20, 30);
+		int maxHeight = CommonRNG.NextInclusive(5, 8);
 		BuildCompleteBoard(level, allot, maxHeight);
 	});
 
 	public static readonly BoardFiller Medium = new("Medium", "m", (level, round) => {
-		int allot = CommonRNG.Next(30, 40);
-		int maxHeight = CommonRNG.Next(7, 9);
+		int allot = CommonRNG.NextInclusive(30, 40);
+		int maxHeight = CommonRNG.NextInclusive(7, 9);
 		BuildCompleteBoard(level, allot, maxHeight);
 	});
 
 	public static readonly BoardFiller Hard = new("Hard", "h", (level, round) => {
-		int allot = CommonRNG.Next(40, 50);
-		int maxHeight = CommonRNG.Next(6, 11);
+		int allot = CommonRNG.NextInclusive(40, 50);
+		int maxHeight = CommonRNG.NextInclusive(6, 11);
 		BuildCompleteBoard(level, allot, maxHeight);
 	});
 
 	public static readonly BoardFiller Expert = new("Expert", "x", (level, round) => {
-		int allot = CommonRNG.Next(55, 65);
-		int maxHeight = CommonRNG.Next(9, 11);
+		int allot = CommonRNG.NextInclusive(55, 65);
+		int maxHeight = CommonRNG.NextInclusive(9, 11);
 		BuildCompleteBoard(level, allot, maxHeight);
 	});
 
 	public static readonly BoardFiller FullFill = new("Full fill", "f", (level, round) => {
-		int st = CommonRNG.Next(8, 9);
+		int st = CommonRNG.NextInclusive(8, 9);
 		int[] columns = [st, st, st, st, st, st, st];
 		BuildFromColumns(level, columns);
 	});
@@ -106,6 +112,7 @@ internal class BoardFiller {
 		for (int i = 0; i < 100; i++) {
 			int colA = CommonRNG.Next(0, 7);
 			int colB = CommonRNG.Next(0, 7);
+
 			if (colA == colB) continue;
 
 			if (columns[colA] >= maxHeight) {

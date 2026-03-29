@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 
 namespace WoodsRandomizer;
+
 [DefaultProperty(nameof(Value))]
 [DefaultEvent(nameof(ValueChanged))]
 [DefaultBindingProperty(nameof(Value))]

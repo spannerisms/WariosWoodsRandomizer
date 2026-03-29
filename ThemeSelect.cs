@@ -26,7 +26,7 @@ internal record ThemeSelect(string Name, Action<WoodsROM> Algo) {
 
 
 	[MethodImpl(MethodImplOptions.AggressiveInlining)] private static int GetRandomHigh() => CommonRNG.Next(160, 256);
-	[MethodImpl(MethodImplOptions.AggressiveInlining)] private static int GetRandomMed() => CommonRNG.Next(100, 150);
+	[MethodImpl(MethodImplOptions.AggressiveInlining)] private static int GetRandomMed() => CommonRNG.Next(100, 151);
 	[MethodImpl(MethodImplOptions.AggressiveInlining)] private static int GetRandomLow() => CommonRNG.Next(0, 41);
 
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -61,7 +61,7 @@ internal record ThemeSelect(string Name, Action<WoodsROM> Algo) {
 	static ShadedColor GetRandomWhite() => GetRandomGray(200, 256);
 
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	static ShadedColor GetRandomBlack() => GetRandomGray(70, 130);
+	static ShadedColor GetRandomBlack() => GetRandomGray(70, 131);
 
 
 
@@ -83,16 +83,20 @@ internal record ThemeSelect(string Name, Action<WoodsROM> Algo) {
 		CommonRNG.Shuffle(shuffleable);
 
 		BoardTheme hp = new(
-			red: ThemesHandler.NamedPalettes.GetRandomElementWhere(o => o.PreferredColor == ObjectColor.Red),
-			yellow: ThemesHandler.NamedPalettes.GetRandomElementWhere(o => o.PreferredColor == ObjectColor.Yellow),
-			green: ThemesHandler.NamedPalettes.GetRandomElementWhere(o => o.PreferredColor == ObjectColor.Green),
-			blue: ThemesHandler.NamedPalettes.GetRandomElementWhere(o => o.PreferredColor == ObjectColor.Blue),
-			pink: ThemesHandler.NamedPalettes.GetRandomElementWhere(o => o.PreferredColor == ObjectColor.Pink),
-			azure: ThemesHandler.NamedPalettes.GetRandomElementWhere(o => o.PreferredColor == ObjectColor.Azure),
-			black: ThemesHandler.NamedPalettes.GetRandomElementWhere(o => o.PreferredColor == ObjectColor.Black),
-			white: ThemesHandler.NamedPalettes.GetRandomElementWhere(o => o.PreferredColor == ObjectColor.White)
+			red: CommonRNG.GetRandomElementWhere(ThemesHandler.NamedPalettes, o => o.PreferredColor == ObjectColor.Red),
+			yellow: CommonRNG.GetRandomElementWhere(ThemesHandler.NamedPalettes, o => o.PreferredColor == ObjectColor.Yellow),
+			green: CommonRNG.GetRandomElementWhere(ThemesHandler.NamedPalettes, o => o.PreferredColor == ObjectColor.Green),
+			blue: CommonRNG.GetRandomElementWhere(ThemesHandler.NamedPalettes, o => o.PreferredColor == ObjectColor.Blue),
+			pink: CommonRNG.GetRandomElementWhere(ThemesHandler.NamedPalettes, o => o.PreferredColor == ObjectColor.Pink),
+			azure: CommonRNG.GetRandomElementWhere(ThemesHandler.NamedPalettes, o => o.PreferredColor == ObjectColor.Azure),
+			black: CommonRNG.GetRandomElementWhere(ThemesHandler.NamedPalettes, o => o.PreferredColor == ObjectColor.Black),
+			white: CommonRNG.GetRandomElementWhere(ThemesHandler.NamedPalettes, o => o.PreferredColor == ObjectColor.White)
 		);
+
 		hp.ApplyTo(rom);
+
+
+
 	});
 
 	/// <summary>
