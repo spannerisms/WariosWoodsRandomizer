@@ -96,11 +96,25 @@
 			<item name="{SPLAT}Potpurri">Generates a new theme from random palettes.</item>
 			<item name="{SPLAT}Shifted">Generates a random theme using the same hues as vanilla.</item>
 		</group>
+		<group name="Song">
+			<description>Choose the song to play during round game.</description>
+			<item name="Round game"/>
+			<item name="Wario time"/>
+			<item name="Time race"/>
+			<item name="VS COM"/>
+			<item name="Lesson"/>
+			<item name="Round game"/>
+			<item name="Game over"/>
+			<item name="Credits">Play this song</item>
+			<item name="Muted">Plays the egg crack sound to prevent a song from playing.</item>
+			<item name="{SPLAT}Random">Chooses a random song.</item>
+		</group>
 		<group name="Other options">
 			<description>Other options</description>
 			<item name="Endurance">In endurance mode, your progress is remembered, but you cannot continue from the last checkpoint. You must always restart from round 1 after a game over.</item>
 			<item name="Simple rounds">When simple rounds are enabled, each round will only have 1 level associated with it. This is in contrast to vanilla, where most rounds have 2 levels.</item>
 			<item name="Direct deposit">With direct deposit, all coins earned at the end of a round are automatically added to your total, allowing for speedier games without sacrificing safety.</item>
+			<item name="Button select">Initialize the control scheme at generation time.</item>
 		</group>
 	</category>
 	<category name="Customization">

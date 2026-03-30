@@ -99,7 +99,7 @@ internal class BoardFiller {
 		var columns = new int[7];
 		int col = 0;
 
-		maxHeight = int.Max((count / 7) + 1, maxHeight);
+		maxHeight = int.Max((count + 6) / 7, maxHeight);
 
 		for (int i = 0; i < count; i++) {
 			columns[col++]++;

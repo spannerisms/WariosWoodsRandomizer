@@ -28,6 +28,8 @@ public partial class WoodsRandoForm : Form {
 	private readonly List<LoggedMessage> StatusLog = [];
 
 	private readonly List<object> CharacterOptions = [];
+	private readonly List<object> SongOptions = [.. SongSelect.ListOf, SongSelect.Muted, SongSelect.Random];
+
 
 	private readonly Dictionary<MonsterType, bool> AllowedTypes = new() {
 		{ MonsterType.Squeak, true },
@@ -85,6 +87,8 @@ public partial class WoodsRandoForm : Form {
 		ColorFillBox.DataSource = ColorFiller.ListOf;
 		DifficultyBox.DataSource = DifficultySelect.ListOf;
 		RNGBox.DataSource = RNGAlgorithm.ListOf;
+		SongSelectBox.DataSource = SongOptions;
+
 
 		BoardFillBox.SelectedItem = BoardFiller.ListOf.FindMatchingSetting(Settings.BoardFiller, BoardFiller.Expert);
 		ColorFillBox.SelectedItem = ColorFiller.ListOf.FindMatchingSetting(Settings.ColorFiller, ColorFiller.AllColors);
@@ -627,6 +631,9 @@ public partial class WoodsRandoForm : Form {
 
 		baseROM.Write8(0x81E804, lives);
 
+		// coins per life
+		// baseROM.write8(0x898D42, 50);
+
 		// direct deposit
 		if (DirectDepositBox.Checked) {
 			ROMPatch.DirectDeposit.ApplyTo(baseROM);
@@ -673,12 +680,17 @@ public partial class WoodsRandoForm : Form {
 		baseROM.CommitChanges();
 
 		ThemeSelect? selectedTheme = ThemeSelectBox.SelectedItem as ThemeSelect;
+		SongSelect selectedSong = (SongSelectBox.SelectedItem as SongSelect) ?? SongSelect.RoundGame;
+
 
 		CharacterGraphics? selguy = PlayAsBox.SelectedItem as CharacterGraphics;
 		CharacterPalette? selpal = CharacterPaletteBox.SelectedItem as CharacterPalette;
 
 		string? guystring = PlayAsBox.SelectedItem?.ToString();
 		string? palstring = CharacterPaletteBox.SelectedItem?.ToString();
+
+
+
 
 		StartNewTask(nm);
 
@@ -708,6 +720,9 @@ public partial class WoodsRandoForm : Form {
 			rom.Write8(0x8791C1, warioSpeed);
 
 			rngAlgo.ApplyTo(rom);
+
+			ushort songval = selectedSong.GetValue();
+			rom.Write16(0x81E808, songval);
 
 			// Set character graphics
 			CharacterGraphics? guy;
@@ -791,7 +806,11 @@ public partial class WoodsRandoForm : Form {
 			"Woohoo!",
 			"Fight!",
 			"Oh!",
+			"Yes!",
+			"Groovy!",
+			"Score!",
 			"Winner!",
+			"Yowwwwza!",
 			"Ladies first.",
 			"Let's see what you've got!",
 			"The real run starts here.",

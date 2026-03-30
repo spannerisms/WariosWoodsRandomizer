@@ -1,12 +1,26 @@
 lorom
 
-
 org $889D2B : JMP SetLives
+
+org $889D8C : JSR GetSong
+
+; rewrite to reverse parity of the check
+org $88C9C9
+	LDA.w #$0005
+	LDX.w $1B85
+	BNE ++
+	JSR GetSong
+++
+
 
 org $88F800
 SetLives:
 	LDA.l StartingLives
-	STA.w $18BC
+	STA.w $1B8C
+	RTS
+
+GetSong:
+	LDA.l RoundGameSong
 	RTS
 
 ;===================================================================================================
@@ -14,14 +28,10 @@ SetLives:
 org $808EAC
 	JSL OnSRAMInit
 
+
 org $8187F6
 	JSL OnRoundSelected
 	BRA ++ : ++
-
-;===================================================================================================
-
-org $808EAC
-	JSL OnSRAMInit
 
 ;===================================================================================================
 ;===================================================================================================

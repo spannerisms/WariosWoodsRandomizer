@@ -26,6 +26,11 @@ public partial class UpdateAnnouncer : Form {
 			ThisVersion = MakeVersion(thisStream);
 		}
 
+#if DEBUG
+   AvailableVersion = new(0,0,0);
+   return;
+#endif
+
 		if (AvailableVersion is null) {
 			const string updateurl = "https://raw.githubusercontent.com/spannerisms/WariosWoodsRandomizer/main/version.xml";
 

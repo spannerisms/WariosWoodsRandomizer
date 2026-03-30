@@ -53,6 +53,8 @@ partial class WoodsRandoForm {
 		DifficultyBox = new ComboBox();
 		label6 = new Label();
 		NeedsRomBox = new Panel();
+		label10 = new Label();
+		SongSelectBox = new ComboBox();
 		label9 = new Label();
 		ButtonSelectButton = new BetterButton();
 		CharacterPaletteBox = new ComboBox();
@@ -94,7 +96,7 @@ partial class WoodsRandoForm {
 		DirectDepositBox.AutoSize = true;
 		DirectDepositBox.Checked = true;
 		DirectDepositBox.CheckState = CheckState.Checked;
-		DirectDepositBox.Location = new Point(192, 182);
+		DirectDepositBox.Location = new Point(203, 182);
 		DirectDepositBox.Name = "DirectDepositBox";
 		DirectDepositBox.Size = new Size(99, 19);
 		DirectDepositBox.TabIndex = 16;
@@ -107,7 +109,7 @@ partial class WoodsRandoForm {
 		SimpleRoundsBox.AutoSize = true;
 		SimpleRoundsBox.Checked = true;
 		SimpleRoundsBox.CheckState = CheckState.Checked;
-		SimpleRoundsBox.Location = new Point(84, 182);
+		SimpleRoundsBox.Location = new Point(94, 182);
 		SimpleRoundsBox.Name = "SimpleRoundsBox";
 		SimpleRoundsBox.Size = new Size(102, 19);
 		SimpleRoundsBox.TabIndex = 19;
@@ -120,7 +122,7 @@ partial class WoodsRandoForm {
 		StartingLivesBox.DropDownStyle = ComboBoxStyle.DropDownList;
 		StartingLivesBox.FormattingEnabled = true;
 		StartingLivesBox.Items.AddRange(new object[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "∞" });
-		StartingLivesBox.Location = new Point(331, 65);
+		StartingLivesBox.Location = new Point(43, 203);
 		StartingLivesBox.Name = "StartingLivesBox";
 		StartingLivesBox.Size = new Size(45, 23);
 		StartingLivesBox.TabIndex = 22;
@@ -129,7 +131,7 @@ partial class WoodsRandoForm {
 		// EnduranceBox
 		// 
 		EnduranceBox.AutoSize = true;
-		EnduranceBox.Location = new Point(382, 67);
+		EnduranceBox.Location = new Point(94, 205);
 		EnduranceBox.Name = "EnduranceBox";
 		EnduranceBox.Size = new Size(82, 19);
 		EnduranceBox.TabIndex = 29;
@@ -281,7 +283,7 @@ partial class WoodsRandoForm {
 		GenerateButton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point,  0);
 		GenerateButton.Location = new Point(3, 250);
 		GenerateButton.Name = "GenerateButton";
-		GenerateButton.Size = new Size(357, 27);
+		GenerateButton.Size = new Size(336, 27);
 		GenerateButton.TabIndex = 8;
 		GenerateButton.TabStop = false;
 		GenerateButton.Text = "Generate";
@@ -292,7 +294,7 @@ partial class WoodsRandoForm {
 		// 
 		GenCount.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
 		GenCount.InterceptArrowKeys = false;
-		GenCount.Location = new Point(412, 254);
+		GenCount.Location = new Point(391, 254);
 		GenCount.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
 		GenCount.Name = "GenCount";
 		GenCount.Size = new Size(52, 23);
@@ -305,7 +307,7 @@ partial class WoodsRandoForm {
 		// 
 		label1.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
 		label1.AutoSize = true;
-		label1.Location = new Point(366, 256);
+		label1.Location = new Point(345, 256);
 		label1.Name = "label1";
 		label1.Size = new Size(40, 15);
 		label1.TabIndex = 10;
@@ -336,7 +338,7 @@ partial class WoodsRandoForm {
 		SarissaTheLady.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
 		SarissaTheLady.BackColor = Color.Transparent;
 		SarissaTheLady.Image = Properties.Resources.sarissacool;
-		SarissaTheLady.Location = new Point(336, 93);
+		SarissaTheLady.Location = new Point(315, 93);
 		SarissaTheLady.Margin = new Padding(0);
 		SarissaTheLady.Name = "SarissaTheLady";
 		SarissaTheLady.Size = new Size(133, 158);
@@ -380,7 +382,7 @@ partial class WoodsRandoForm {
 		// label3
 		// 
 		label3.AutoSize = true;
-		label3.Location = new Point(291, 68);
+		label3.Location = new Point(4, 205);
 		label3.Name = "label3";
 		label3.Size = new Size(33, 15);
 		label3.TabIndex = 23;
@@ -425,6 +427,8 @@ partial class WoodsRandoForm {
 		// 
 		// NeedsRomBox
 		// 
+		NeedsRomBox.Controls.Add(label10);
+		NeedsRomBox.Controls.Add(SongSelectBox);
 		NeedsRomBox.Controls.Add(label9);
 		NeedsRomBox.Controls.Add(ButtonSelectButton);
 		NeedsRomBox.Controls.Add(BoardFillBox);
@@ -454,13 +458,32 @@ partial class WoodsRandoForm {
 		NeedsRomBox.Dock = DockStyle.Fill;
 		NeedsRomBox.Location = new Point(0, 56);
 		NeedsRomBox.Name = "NeedsRomBox";
-		NeedsRomBox.Size = new Size(469, 280);
+		NeedsRomBox.Size = new Size(448, 280);
 		NeedsRomBox.TabIndex = 0;
+		// 
+		// label10
+		// 
+		label10.AutoSize = true;
+		label10.Location = new Point(282, 37);
+		label10.Name = "label10";
+		label10.Size = new Size(34, 15);
+		label10.TabIndex = 38;
+		label10.Text = "Song";
+		// 
+		// SongSelectBox
+		// 
+		SongSelectBox.DropDownStyle = ComboBoxStyle.DropDownList;
+		SongSelectBox.FormattingEnabled = true;
+		SongSelectBox.Location = new Point(322, 34);
+		SongSelectBox.Name = "SongSelectBox";
+		SongSelectBox.Size = new Size(121, 23);
+		SongSelectBox.TabIndex = 37;
+		SongSelectBox.TabStop = false;
 		// 
 		// label9
 		// 
 		label9.AutoSize = true;
-		label9.Location = new Point(291, 38);
+		label9.Location = new Point(276, 68);
 		label9.Name = "label9";
 		label9.Size = new Size(76, 15);
 		label9.TabIndex = 36;
@@ -469,7 +492,7 @@ partial class WoodsRandoForm {
 		// ButtonSelectButton
 		// 
 		ButtonSelectButton.FlatStyle = FlatStyle.Popup;
-		ButtonSelectButton.Location = new Point(373, 34);
+		ButtonSelectButton.Location = new Point(352, 64);
 		ButtonSelectButton.Name = "ButtonSelectButton";
 		ButtonSelectButton.Size = new Size(91, 23);
 		ButtonSelectButton.TabIndex = 35;
@@ -484,8 +507,9 @@ partial class WoodsRandoForm {
 		CharacterPaletteBox.FormattingEnabled = true;
 		CharacterPaletteBox.Location = new Point(276, 4);
 		CharacterPaletteBox.Name = "CharacterPaletteBox";
-		CharacterPaletteBox.Size = new Size(188, 23);
+		CharacterPaletteBox.Size = new Size(167, 23);
 		CharacterPaletteBox.TabIndex = 34;
+		CharacterPaletteBox.TabStop = false;
 		// 
 		// label7
 		// 
@@ -570,7 +594,7 @@ partial class WoodsRandoForm {
 		OutputDirectoryButton.PlaceholderText = "Click to set an output directory";
 		OutputDirectoryButton.ReadOnly = true;
 		OutputDirectoryButton.ShortcutsEnabled = false;
-		OutputDirectoryButton.Size = new Size(440, 23);
+		OutputDirectoryButton.Size = new Size(419, 23);
 		OutputDirectoryButton.TabIndex = 2;
 		OutputDirectoryButton.TabStop = false;
 		OutputDirectoryButton.MouseClick += OutputDirectoryButton_MouseClick;
@@ -582,7 +606,7 @@ partial class WoodsRandoForm {
 		RomPanel.Dock = DockStyle.Top;
 		RomPanel.Location = new Point(0, 25);
 		RomPanel.Name = "RomPanel";
-		RomPanel.Size = new Size(469, 31);
+		RomPanel.Size = new Size(448, 31);
 		RomPanel.TabIndex = 4;
 		// 
 		// OpenOutputDirectoryButton
@@ -593,7 +617,7 @@ partial class WoodsRandoForm {
 		OpenOutputDirectoryButton.Cursor = Cursors.Hand;
 		OpenOutputDirectoryButton.FlatAppearance.BorderSize = 0;
 		OpenOutputDirectoryButton.FlatStyle = FlatStyle.Flat;
-		OpenOutputDirectoryButton.Location = new Point(447, 7);
+		OpenOutputDirectoryButton.Location = new Point(426, 7);
 		OpenOutputDirectoryButton.MaximumSize = new Size(18, 18);
 		OpenOutputDirectoryButton.MinimumSize = new Size(18, 18);
 		OpenOutputDirectoryButton.Name = "OpenOutputDirectoryButton";
@@ -635,7 +659,7 @@ partial class WoodsRandoForm {
 		StatusBar.Items.AddRange(new ToolStripItem[] { StatusTime, StatusInfoText, TaskProgress, ShowLogButton });
 		StatusBar.Location = new Point(0, 336);
 		StatusBar.Name = "StatusBar";
-		StatusBar.Size = new Size(469, 25);
+		StatusBar.Size = new Size(448, 25);
 		StatusBar.SizingGrip = false;
 		StatusBar.TabIndex = 3;
 		StatusBar.Text = "---";
@@ -645,7 +669,7 @@ partial class WoodsRandoForm {
 		StatusInfoText.ForeColor = SystemColors.ControlDark;
 		StatusInfoText.Margin = new Padding(0, 4, 0, 2);
 		StatusInfoText.Name = "StatusInfoText";
-		StatusInfoText.Size = new Size(279, 19);
+		StatusInfoText.Size = new Size(258, 19);
 		StatusInfoText.Spring = true;
 		StatusInfoText.Text = "Initializing...";
 		StatusInfoText.TextAlign = ContentAlignment.MiddleLeft;
@@ -668,7 +692,7 @@ partial class WoodsRandoForm {
 		toolStrip1.Name = "toolStrip1";
 		toolStrip1.Padding = new Padding(10, 0, 1, 0);
 		toolStrip1.RightToLeft = RightToLeft.No;
-		toolStrip1.Size = new Size(469, 25);
+		toolStrip1.Size = new Size(448, 25);
 		toolStrip1.TabIndex = 6;
 		// 
 		// UploadARomButton
@@ -747,7 +771,7 @@ partial class WoodsRandoForm {
 		// 
 		AutoScaleDimensions = new SizeF(7F, 15F);
 		AutoScaleMode = AutoScaleMode.Font;
-		ClientSize = new Size(469, 361);
+		ClientSize = new Size(448, 361);
 		Controls.Add(LoggerPanel);
 		Controls.Add(NeedsRomBox);
 		Controls.Add(RomPanel);
@@ -836,4 +860,6 @@ partial class WoodsRandoForm {
 	private BetterButton ButtonSelectButton;
 	private Label label9;
 	private ToolStripButton VersionLabel;
+	private Label label10;
+	private ComboBox SongSelectBox;
 }
